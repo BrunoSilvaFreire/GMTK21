@@ -1,0 +1,10 @@
+﻿{
+  "name": "GMTK.Combat",
+  "references": [
+    "Tsuki.Runtime",
+    "Tsuki.Entities",
+    "GMTK.Common",
+    "GMTK.Entities.Common",
+    "ShiroiFX"
+  ]
+}

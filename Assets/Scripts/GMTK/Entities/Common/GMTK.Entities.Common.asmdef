@@ -1,0 +1,8 @@
+﻿{
+  "name": "GMTK.Entities.Common",
+  "references": [
+    "Cinemachine",
+    "Tsuki.Runtime",
+    "Tsuki.Entities"
+  ]
+}

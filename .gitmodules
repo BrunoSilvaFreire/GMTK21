@@ -1,0 +1,3 @@
+[submodule "TsukiSuite"]
+	path = TsukiSuite
+	url = https://github.com/LunariStudios/TsukiSuite

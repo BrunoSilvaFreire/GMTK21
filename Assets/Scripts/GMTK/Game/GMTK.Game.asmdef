@@ -1,0 +1,21 @@
+{
+    "name": "GMTK.Game",
+    "rootNamespace": "",
+    "references": [
+        "Cinemachine",
+        "Tsuki.Entities",
+        "Tsuki.Runtime",
+        "GMTK.Common",
+        "GMTK.Entities.Common",
+        "GMTK.Input"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,26 @@
+{
+  "name": "GMTK.Cinematics.Dialogue",
+  "rootNamespace": "",
+  "references": [
+    "Unity.Timeline",
+    "Unity.TextMeshPro",
+    "Unity.EditorCoroutines.Editor",
+    "Tsuki.Entities",
+    "Tsuki.Runtime",
+    "GMTK.Common",
+    "GMTK.UI",
+    "GMTK.Combat",
+    "GMTK.Entities.Common",
+    "GMTK.Game",
+    "GMTK.Input"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
