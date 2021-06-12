@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using Lunari.Tsuki.Runtime;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace GMTK.Game.Traits {
     public class HappyAtom : Atom {
+        
+        public static readonly List<HappyAtom> AllHappyAtoms = new List<HappyAtom>();
 
         [SerializeField] private Neutron neutronPrefab;
         [SerializeField] private AngryAtom angryAtom;
@@ -36,14 +39,14 @@ namespace GMTK.Game.Traits {
 
             for (int i = 0; i < neutronCount; i++) {
                 var direction = Vector3FromAngle(AngleFromIndex(childIndex, totalChildren) + angleOffset);
-                var neutron = neutronPrefab.Clone(transform.position + direction * 4);
+                var neutron = neutronPrefab.Clone(transform.position + direction * 2);
                 neutron.rigidbody.AddForce(direction * impulse, ForceMode.Impulse);
                 childIndex++;
             }
 
             for (int i = 0; i < angryAtomsCount; i++) {
                 var direction = Vector3FromAngle(AngleFromIndex(childIndex, totalChildren) + angleOffset);
-                var angryAtoms = angryAtom.Clone(transform.position + direction * 4);
+                var angryAtoms = angryAtom.Clone(transform.position + direction * 2);
                 angryAtoms.rigidbody.AddForce(direction * impulse, ForceMode.Impulse);
                 childIndex++;
             }
