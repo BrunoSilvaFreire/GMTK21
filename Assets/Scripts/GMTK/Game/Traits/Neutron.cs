@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Lunari.Tsuki.Entities;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -12,6 +13,7 @@ namespace GMTK.Game.Traits {
         public static readonly List<Neutron> AllNeutrons = new List<Neutron>();
 
         [SerializeField, Range(0f, 1f)] private float randomDirectionTendency = 0.4f;
+        public float lifeTime = 5f;
         
         private void OnEnable() {
             AllNeutrons.Add(this);
@@ -20,6 +22,19 @@ namespace GMTK.Game.Traits {
             var attractor = Player.Instance.Pawn.GetTrait<NeutronAttractor>(); 
             attractor.onAttractDirection.AddListener(OnAttractDirection);
             attractor.onAttractPosition.AddListener(OnAttractPosition);
+
+            transform.DOPunchScale(Vector3.one * 0.1f, 0.1f).OnComplete(() => {
+                transform.DOScale(Vector3.zero, 0.5f).OnComplete(() => {
+                    if (AllNeutrons.Count > 1) {
+                        Destroy(gameObject);    
+                    }
+                });
+            }).SetDelay(lifeTime);
+        }
+
+        private void OnDestroy() {
+            transform.DOKill();
+            AllNeutrons.Remove(this);
         }
 
         private void OnDisable() {
