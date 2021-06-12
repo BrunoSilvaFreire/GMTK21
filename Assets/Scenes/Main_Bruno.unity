@@ -627,7 +627,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7416108, y: 1}
+    m_SensorSize: {x: 2.5115304, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -887,6 +887,8 @@ MonoBehaviour:
       m_Calls: []
   camera: {fileID: 670980804}
   dragging: 0
+  maxDistance: 25
+  forceMultiplier: 0.5
 --- !u!114 &943251975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,8 +959,10 @@ MonoBehaviour:
   anchorObject: {fileID: 1759658547}
   anchorView: {fileID: 1759658549}
   line: {fileID: 1855110393}
-  lineView: {fileID: 1855110395}
   offset: -0.75
+  lineStartAlpha: 1
+  lineEndAlpha: 0.5
+  reference: {fileID: 930370701}
 --- !u!114 &943251979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2133,7 +2137,7 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0.25882354}
+      key1: {r: 1, g: 1, b: 1, a: 0.2509804}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2148,7 +2152,7 @@ LineRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 386
       atime1: 65535
       atime2: 31804
       atime3: 65535
