@@ -33,10 +33,13 @@ namespace GMTK.Game {
                 
                 yield return new WaitWhile(() => atomsToSpawn <= 0 || Time.time < nextSpawn);
 
-                var screenPosition = new Vector3(Screen.width * Random.value, Screen.height * Random.value);
-                var worldPosition = camera.ScreenToWorldPoint(screenPosition);
+                var screenPosition = Random.insideUnitCircle * (Random.value * 60);
+                var worldPosition = camera.transform.position + new Vector3(screenPosition.x, screenPosition.y);
                 worldPosition.z = 0;
-                happyAtomPrefab.Clone(worldPosition);
+                var clone = happyAtomPrefab.Clone(worldPosition);
+                print(screenPosition);
+                print(worldPosition);
+                print(clone.transform.position);
 
                 nextSpawn = Time.time + spawnInterval;
                 atomsToSpawn--;
