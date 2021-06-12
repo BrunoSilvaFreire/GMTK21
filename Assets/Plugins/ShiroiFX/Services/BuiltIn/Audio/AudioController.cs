@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using Lunari.Tsuki.Singletons;
+using Lunari.Tsuki.Runtime.Singletons;
 using UnityEngine;
 
 namespace Shiroi.FX.Services.BuiltIn.Audio {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using GMTK.Common;
 using GMTK.Game;
-using Lunari.Tsuki;
+using Lunari.Tsuki.Runtime;
 using TMPro;
 using UnityEditor;
 using UnityEngine;

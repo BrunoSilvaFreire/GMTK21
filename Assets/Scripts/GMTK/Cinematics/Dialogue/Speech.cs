@@ -1,6 +1,6 @@
 using System.Collections;
 using GMTK.Entities.Common;
-using Lunari.Tsuki;
+using Lunari.Tsuki.Runtime;
 using Lunari.Tsuki.Entities;
 using Sirenix.OdinInspector;
 using UnityEngine;

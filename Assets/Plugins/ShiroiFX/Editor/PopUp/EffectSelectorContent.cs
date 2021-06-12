@@ -4,7 +4,7 @@ using System.Linq;
 using Shiroi.FX.Effects;
 using UnityEditor;
 using UnityEngine;
-using Types = Lunari.Tsuki.Types;
+using Types = Lunari.Tsuki.Runtime.Types;
 
 namespace Shiroi.FX.Editor.PopUp {
     public class EffectSelectorContent : PopupWindowContent {

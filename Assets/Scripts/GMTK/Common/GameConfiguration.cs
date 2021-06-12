@@ -1,4 +1,4 @@
-using Lunari.Tsuki.Singletons;
+using Lunari.Tsuki.Runtime.Singletons;
 using UnityEngine;
 
 namespace GMTK.Common {

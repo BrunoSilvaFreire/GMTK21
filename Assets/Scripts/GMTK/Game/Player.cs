@@ -4,7 +4,7 @@ using GMTK.Common;
 using GMTK.Entities.Common;
 using GMTK.Input;
 using Lunari.Tsuki.Entities;
-using Lunari.Tsuki.Singletons;
+using Lunari.Tsuki.Runtime.Singletons;
 using UnityEngine;
 using UnityEngine.Events;
 

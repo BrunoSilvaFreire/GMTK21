@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using GMTK.Common;
 using GMTK.Entities.Common;
-using Lunari.Tsuki;
+using Lunari.Tsuki.Runtime;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

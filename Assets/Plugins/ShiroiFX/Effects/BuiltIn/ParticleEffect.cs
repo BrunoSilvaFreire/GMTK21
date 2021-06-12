@@ -1,4 +1,4 @@
-﻿using Lunari.Tsuki;
+﻿using Lunari.Tsuki.Runtime;
 using Shiroi.FX.Colors;
 using Shiroi.FX.Effects.Requirements;
 using Shiroi.FX.Features;

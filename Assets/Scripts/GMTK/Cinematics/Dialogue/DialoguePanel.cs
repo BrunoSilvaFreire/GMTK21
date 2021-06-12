@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using GMTK.Entities.Common;
 using GMTK.UI;
-using Lunari.Tsuki;
+using Lunari.Tsuki.Runtime;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEditor;

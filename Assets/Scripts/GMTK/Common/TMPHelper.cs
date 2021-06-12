@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using Lunari.Tsuki;
+using Lunari.Tsuki.Runtime;
 
 namespace GMTK.Common {
     public static class TMPHelper {

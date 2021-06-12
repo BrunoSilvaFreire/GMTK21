@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Lunari.Tsuki;
+using Lunari.Tsuki.Runtime;
 using Shiroi.FX.Effects.Requirements;
 using Shiroi.FX.Features;
 using Shiroi.FX.Services.BuiltIn;
