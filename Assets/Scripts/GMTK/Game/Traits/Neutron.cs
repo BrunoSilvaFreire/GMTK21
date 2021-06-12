@@ -7,14 +7,7 @@ using UnityEngine.PlayerLoop;
 
 
 namespace GMTK.Game.Traits {
-    public class Neutron : Trait {
-
-        private Rigidbody rb;
-        
-        public override void Configure(TraitDescriptor descriptor) {
-            descriptor.RequiresComponent(out rb);
-        }
-
+    public class Neutron : Particle {
         private void Start() {
             Player.Instance.Pawn.GetTrait<NeutronAttractor>().onAttract.AddListener(OnAttract);
         }
@@ -27,7 +20,7 @@ namespace GMTK.Game.Traits {
         }
 
         private void OnAttract(Vector3 force) {
-            rb.AddForce(force, ForceMode.Impulse);
+            rigidbody.AddForce(force, ForceMode.Impulse);
         }
     }
 }
