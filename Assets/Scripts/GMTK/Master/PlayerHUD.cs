@@ -12,6 +12,7 @@ namespace GMTK.Master {
         public LineRenderer line;
         public View lineView;
         public float offset;
+
         public override void Configure(TraitDescriptor descriptor) {
             descriptor.DependsOn(out attractor);
         }
@@ -24,8 +25,15 @@ namespace GMTK.Master {
                 return;
             }
 
-            var anchorPos = attractor.StartDraggingPosition;
-            var currentPos = attractor.Input.MousePosition;
+            var startDraggingPosition = attractor.StartDraggingPosition;
+            var mousePosition = attractor.Input.MousePosition;
+            var attractorCamera = attractor.camera;
+            var cameraZ = attractorCamera.transform.position.z;
+            startDraggingPosition.z = -cameraZ;
+            mousePosition.z = -cameraZ;
+            var anchorPos = attractorCamera.ScreenToWorldPoint(startDraggingPosition);
+            
+            var currentPos = attractorCamera.ScreenToWorldPoint(mousePosition);
             var dir = (currentPos - anchorPos);
             var normalizedDir = dir.normalized;
             var opposite = anchorPos - dir;
