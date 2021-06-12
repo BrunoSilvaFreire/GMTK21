@@ -54,6 +54,8 @@ namespace GMTK.Game.Traits {
                 var angryAtoms = angryAtom.Clone(transform.position + direction * 2);
                 angryAtoms.rigidbody.AddForce(direction * angryAtomForce, ForceMode.Impulse);
             }
+
+            AtomSpawner.Instance.OnHappyAtomDestroyed();
             
             Destroy(gameObject);
             Destroy(collision.rigidbody.gameObject);
