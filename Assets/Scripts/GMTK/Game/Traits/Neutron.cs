@@ -17,21 +17,29 @@ namespace GMTK.Game.Traits {
             AllNeutrons.Add(this);
         }
         private void Start() {
-            Player.Instance.Pawn.GetTrait<NeutronAttractor>().onAttract.AddListener(OnAttract);
+            var attractor = Player.Instance.Pawn.GetTrait<NeutronAttractor>(); 
+            attractor.onAttractDirection.AddListener(OnAttractDirection);
+            attractor.onAttractPosition.AddListener(OnAttractPosition);
         }
 
         private void OnDisable() {
             AllNeutrons.Remove(this);
             var player = Player.Instance; //cringe unity
             if (player) {
-                player.Pawn.GetTrait<NeutronAttractor>().onAttract.RemoveListener(OnAttract);
+                var attractor = Player.Instance.Pawn.GetTrait<NeutronAttractor>();
+                attractor.onAttractDirection.RemoveListener(OnAttractDirection);
+                attractor.onAttractPosition.RemoveListener(OnAttractPosition);
             }
         }
 
-        private void OnAttract(Vector3 force) {
+        private void OnAttractDirection(Vector3 force) {
             var randomDirection = Random.insideUnitCircle * force.magnitude;
             var direction = Vector3.Lerp(force, randomDirection, randomDirectionTendency);
             rigidbody.AddForce(direction, ForceMode.Impulse);
+        }
+
+        private void OnAttractPosition(Vector3 position) {
+            rigidbody.AddForce(position - transform.position, ForceMode.Acceleration);
         }
     }
 }

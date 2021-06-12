@@ -8,14 +8,17 @@ namespace GMTK.Input {
         [ShowInInspector]
         public Vector3 MousePosition { get; private set; }
         [ShowInInspector]
-        public bool MouseDown { get; private set; }
+        public bool LeftMouseDown { get; private set; }
         [ShowInInspector]
-        public bool MouseUp { get; private set; }
+        public bool LeftMouseUp { get; private set; }
+        
+        public bool RightMouse { get; private set; }
 
         private void Update() {
             MousePosition = source.GetMousePosition();
-            MouseDown = source.GetMouseDown();
-            MouseUp = source.GetMouseUp();
+            LeftMouseDown = source.GetMouseDown();
+            LeftMouseUp = source.GetMouseUp();
+            RightMouse = source.GetRightMouse();
         }
     }
 }
