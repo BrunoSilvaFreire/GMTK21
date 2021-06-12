@@ -22,8 +22,8 @@ namespace GMTK.Input {
             set {
                 zeroed = value;
                 if (value) {
-                    MouseDown = false;
-                    MouseUp = false;       
+                    LeftMouseDown = false;
+                    LeftMouseUp = false;       
                 }
             }
         }
@@ -36,9 +36,11 @@ namespace GMTK.Input {
             if (Zeroed) {
                 LeftMouseDown = false;
                 LeftMouseUp = false;
+                RightMouse = false;
             } else {
                 LeftMouseDown = source.GetMouseDown();
                 LeftMouseUp = source.GetMouseUp();
+                RightMouse = source.GetRightMouse();
             }
         }
     }
