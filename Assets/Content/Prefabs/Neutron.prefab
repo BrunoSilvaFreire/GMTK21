@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99b91e4d9c403145a9c59f3c3a4fbaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomDirectionTendency: 0.349
+  randomDirectionTendency: 0.21
 --- !u!54 &2364469122564927498
 Rigidbody:
   m_ObjectHideFlags: 0

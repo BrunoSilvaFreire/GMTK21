@@ -11,10 +11,11 @@ namespace GMTK.Input {
         public Vector3 MousePosition { get; private set; }
 
         [ShowInInspector]
-        public bool MouseDown { get; private set; }
-
+        public bool LeftMouseDown { get; private set; }
         [ShowInInspector]
-        public bool MouseUp { get; private set; }
+        public bool LeftMouseUp { get; private set; }
+        
+        public bool RightMouse { get; private set; }
 
         public bool Zeroed {
             get => zeroed;
@@ -29,13 +30,9 @@ namespace GMTK.Input {
 
         private void Update() {
             MousePosition = source.GetMousePosition();
-            if (Zeroed) {
-                MouseDown = false;
-                MouseUp = false;
-            } else {
-                MouseDown = source.GetMouseDown();
-                MouseUp = source.GetMouseUp();
-            }
+            LeftMouseDown = source.GetMouseDown();
+            LeftMouseUp = source.GetMouseUp();
+            RightMouse = source.GetRightMouse();
         }
     }
 }

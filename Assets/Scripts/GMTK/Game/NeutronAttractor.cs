@@ -6,7 +6,8 @@ using UnityEngine.Events;
 
 namespace GMTK.Game {
     public class NeutronAttractor : Trait {
-        public UnityEvent<Vector3> onAttract;
+        public UnityEvent<Vector3> onAttractDirection;
+        public UnityEvent<Vector3> onAttractPosition;
 
         public new Camera camera;
         private EntityInput input;
@@ -25,15 +26,19 @@ namespace GMTK.Game {
         }
 
         private void Update() {
-            if (Input.MouseDown) {
+            if (Input.LeftMouseDown) {
                 dragging = true;
                 StartDraggingPosition = Input.MousePosition;
             }
 
-            if (Input.MouseUp) {
+            if (Input.LeftMouseUp) {
                 dragging = false;
                 var direction = GetForce();
-                onAttract.Invoke(direction);
+                onAttractDirection.Invoke(direction);
+            }
+
+            if (Input.RightMouse) {
+                onAttractPosition.Invoke(camera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f)));
             }
         }
 
