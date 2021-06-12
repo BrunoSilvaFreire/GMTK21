@@ -2,8 +2,8 @@ using UnityEngine.Events;
 
 namespace GMTK.Common {
     public class Bindable<T> {
-        public readonly UnityEvent<T> onAttached = new();
-        public readonly UnityEvent<T> onDetached = new();
+        public readonly UnityEvent<T> onAttached;
+        public readonly UnityEvent<T> onDetached;
 
         public Bindable(UnityEvent<T> onChanged) {
             onChanged.AddListener(delegate(T arg0) {

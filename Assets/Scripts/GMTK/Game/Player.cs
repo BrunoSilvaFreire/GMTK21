@@ -5,6 +5,7 @@ using GMTK.Entities.Common;
 using GMTK.Input;
 using Lunari.Tsuki.Entities;
 using Lunari.Tsuki.Runtime.Singletons;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,13 +20,14 @@ namespace GMTK.Game {
         private int cachedPriority;
         private InputSource cachedSource;
 
+        
+        [ShowInInspector]
         public Entity Pawn {
             get => pawn;
             set {
                 if (value == pawn) return;
                 if (pawn != null || pawn != null && pawn != value) {
                     if (pawn.Access(out EntityInput input)) {
-                        input.Reset();
                         input.source = cachedSource;
                     }
 
@@ -35,17 +37,6 @@ namespace GMTK.Game {
                 pawn = value;
 
                 Configure(value);
-            }
-        }
-
-
-        private void Start() {
-            if (Pawn == null) {
-                var candidate = Character.AvailableCharacters.FirstOrDefault(character => character.controllable);
-                if (candidate != null) Pawn = candidate.Owner;
-            }
-            else {
-                Configure(Pawn);
             }
         }
 
