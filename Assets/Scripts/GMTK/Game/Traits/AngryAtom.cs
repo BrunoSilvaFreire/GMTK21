@@ -12,10 +12,6 @@ namespace GMTK.Game.Traits {
                 Destroy(gameObject);
             });
         }
-        protected override void OnCollisionWithNeutron(Collision collision) {
-            Destroy(collision.rigidbody.gameObject);
-            Destroy(gameObject);
-            transform.DOKill();
-        }
+        protected override void OnCollisionWithNeutron(Collision collision) { }
     }
 }
