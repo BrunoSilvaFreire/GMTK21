@@ -35,7 +35,7 @@ namespace GMTK.Common {
         }
 
         public static List<T> Of<T>(T type) {
-            return new() {type};
+            return new List<T>{type};
         }
 
         // Binary Search by delegation to int because C# doesn't have a fucking BinarySearch by Comparison

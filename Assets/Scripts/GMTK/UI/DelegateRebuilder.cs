@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace GMTK.UI {
     public class DelegateRebuilder : MonoBehaviour {
-        public UnityEvent onRebuild = new();
+        public UnityEvent onRebuild;
 
         private void OnRectTransformDimensionsChange() {
             onRebuild.Invoke();

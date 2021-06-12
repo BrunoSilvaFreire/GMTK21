@@ -1,16 +1,13 @@
 ﻿using Lunari.Tsuki.Entities;
 
 namespace GMTK.Input {
-    public abstract class InputSource : Trait 
-    {
-        public abstract bool GetInteract();
-    }
-
-
     public class EntityInput : Trait {
         public InputSource source;
-
-        public void Reset() {
+        
+        private void Update() {
+            source.mousePosition = UnityEngine.Input.mousePosition;
+            source.mouseDown = UnityEngine.Input.GetMouseButtonDown(0);
+            source.mouseUp = UnityEngine.Input.GetMouseButtonUp(0);
         }
     }
 }

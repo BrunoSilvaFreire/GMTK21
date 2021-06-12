@@ -29,12 +29,12 @@ namespace GMTK.Common {
         }
 
         public static readonly Tuple<ExposedCallType, Type>[] AllowedTypes = {
-            new(ExposedCallType.Bool, typeof(bool)),
-            new(ExposedCallType.Float, typeof(float)),
-            new(ExposedCallType.Int, typeof(int)),
-            new(ExposedCallType.String, typeof(string)),
-            new(ExposedCallType.Void, typeof(void)),
-            new(ExposedCallType.Object, typeof(Object))
+            new Tuple<ExposedCallType, Type>(ExposedCallType.Bool, typeof(bool)),
+            new Tuple<ExposedCallType, Type>(ExposedCallType.Float, typeof(float)),
+            new Tuple<ExposedCallType, Type>(ExposedCallType.Int, typeof(int)),
+            new Tuple<ExposedCallType, Type>(ExposedCallType.String, typeof(string)),
+            new Tuple<ExposedCallType, Type>(ExposedCallType.Void, typeof(void)),
+            new Tuple<ExposedCallType, Type>(ExposedCallType.Object, typeof(Object))
         };
 
         public ExposedReference<Object> target;
