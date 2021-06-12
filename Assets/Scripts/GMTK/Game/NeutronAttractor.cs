@@ -38,8 +38,15 @@ namespace GMTK.Game {
         }
 
         public Vector3 GetForce() {
-            return Vector3.ClampMagnitude(StartDraggingPosition - Input.MousePosition, maxDistance) *
-                   forceMultiplier;
+            var anchorPoint = StartDraggingPosition;
+            var cameraPosition = camera.transform.position;
+            anchorPoint.z -= cameraPosition.z;
+            var mousePoint = Input.MousePosition;
+            mousePoint.z -= cameraPosition.z;
+            var direction = camera.ScreenToWorldPoint(anchorPoint) - camera.ScreenToWorldPoint(mousePoint);
+            var mag = Mathf.Clamp(direction.magnitude, 0, maxDistance);
+            var percentageForce = Mathf.InverseLerp(0, maxDistance, mag);
+            return direction.normalized * (percentageForce * forceMultiplier);
         }
     }
 }
