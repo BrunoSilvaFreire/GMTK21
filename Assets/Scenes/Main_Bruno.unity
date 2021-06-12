@@ -565,7 +565,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6175675, y: 1}
+    m_SensorSize: {x: 2.642384, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -847,35 +847,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    toHighlight: {fileID: 0}
-    line:
-      character:
-        exposedName: 
-        defaultValue: {fileID: 0}
-      spans: []
-      requireInteraction: 0
-      customTitle: 
-      noHoldTime: 0
-      extraDuration: 0
   - view: {fileID: 1516326264}
     onCompleted:
       m_PersistentCalls:
         m_Calls: []
-    toHighlight: {fileID: 0}
-    line:
-      character:
-        exposedName: 
-        defaultValue: {fileID: 0}
-      spans: []
-      requireInteraction: 0
-      customTitle: 
-      noHoldTime: 0
-      extraDuration: 0
   animator: {fileID: 1516326259}
   animatorParameter: TutorialStep
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &1812305368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,7 +895,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 51908f37b7d16ec4aad933c91fcef9db, type: 2}
   m_InitialState: 1
-  m_WrapMode: 0
+  m_WrapMode: 2
   m_DirectorUpdateMode: 0
   m_InitialTime: 0
   m_SceneBindings:
@@ -1080,6 +1057,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5695064260913539765, guid: 75a28666a157e864ab0b03cd68f38fc9, type: 3}
+      propertyPath: immortal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7002052136086284172, guid: 75a28666a157e864ab0b03cd68f38fc9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1137,14 +1118,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5572118106201736976, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 1386073462331101208, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5572118106201736976, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
+    - target: {fileID: 1386073462331101208, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8334303795421135204, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 670980804}
     - target: {fileID: 8334303795421135206, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1197,5 +1182,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8334303796682497832, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 670980804}
+    - target: {fileID: 8334303797062790681, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 670980804}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
