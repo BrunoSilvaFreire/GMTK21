@@ -18,7 +18,7 @@ namespace GMTK.Cinematics.Dialogue {
 
         public ExposedReference<Character> character;
 
-        [SerializeField] public List<DialogueSpan> spans = new();
+        [SerializeField] public List<DialogueSpan> spans;
 
         public bool requireInteraction;
         public string customTitle;
@@ -70,9 +70,9 @@ namespace GMTK.Cinematics.Dialogue {
         }
 
         public static DialogueLine From(string line) {
-            return new() {
+            return new DialogueLine {
                 spans = new List<DialogueSpan> {
-                    new() {
+                    new DialogueSpan{
                         inflatedContent = line
                     }
                 }
@@ -85,7 +85,7 @@ namespace GMTK.Cinematics.Dialogue {
         [TextArea] [FormerlySerializedAs("content")] [LabelText("content")]
         public string inflatedContent;
 
-        [SerializeReference] [ShowInInspector] public List<DialogueEffect> effects = new();
+        [SerializeReference] [ShowInInspector] public List<DialogueEffect> effects;
 
         public string StrippedContent => TMPHelper.RemoveRichText(inflatedContent);
     }

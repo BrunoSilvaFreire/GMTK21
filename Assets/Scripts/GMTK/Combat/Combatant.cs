@@ -16,7 +16,7 @@ namespace GMTK.Combat {
         }
 
         public const uint MidGameAttackDamageReference = 15;
-        public static UnityEvent<Combatant> onAlignmentChanged = new();
+        public static UnityEvent<Combatant> onAlignmentChanged;
 
         private static readonly int Attack = Animator.StringToHash("Attack");
 

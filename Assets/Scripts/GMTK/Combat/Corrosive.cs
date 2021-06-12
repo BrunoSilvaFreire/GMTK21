@@ -20,7 +20,7 @@ namespace GMTK.Combat {
 
         public Effect onDamageEffect;
 
-        [NonSerialized] public List<Collider2D> manualQueryWhiteList = new();
+        [NonSerialized] public List<Collider2D> manualQueryWhiteList;
 
         private Combatant personalCombatant;
 
