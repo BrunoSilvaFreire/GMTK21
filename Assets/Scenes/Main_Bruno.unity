@@ -888,7 +888,7 @@ MonoBehaviour:
   camera: {fileID: 670980804}
   dragging: 0
   maxDistance: 25
-  forceMultiplier: 0.5
+  forceMultiplier: 50
 --- !u!114 &943251975
 MonoBehaviour:
   m_ObjectHideFlags: 0
