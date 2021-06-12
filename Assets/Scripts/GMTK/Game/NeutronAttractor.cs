@@ -19,15 +19,15 @@ namespace GMTK.Game {
             }
             camera = Camera.main;
         }
-        
-        private void FixedUpdate() {
+
+        private void Update() {
             if (input.mouseDown) {
-                startDraggingPosition = camera.ScreenToWorldPoint(input.mousePosition);
+                startDraggingPosition = input.mousePosition;
             }
 
             if (input.mouseUp) {
-                var endDraggingPosition = camera.ScreenToWorldPoint(input.mousePosition);
-                onAttract.Invoke(endDraggingPosition - startDraggingPosition);
+                var endDraggingPosition = input.mousePosition;
+                onAttract.Invoke(startDraggingPosition - endDraggingPosition);
             }
         }
     }
