@@ -7,9 +7,17 @@ namespace GMTK.Input {
         public bool GetInteract() {//cringe
             return false;
         }
-        
-        public Vector3 mousePosition;
-        public bool mouseDown;
-        public bool mouseUp;
+
+        public Vector3 GetMousePosition() {
+            return UnityEngine.Input.mousePosition;
+        }
+
+        public bool GetMouseDown() {
+            return UnityEngine.Input.GetMouseButtonDown(0);
+        }
+
+        public bool GetMouseUp() {
+            return UnityEngine.Input.GetMouseButtonUp(0);
+        }
     }
 }
