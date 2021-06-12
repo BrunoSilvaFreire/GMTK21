@@ -52,7 +52,7 @@ namespace GMTK.UI {
 
         public int layoutPriority => DelegateOrDefault(element => element.layoutPriority);
 
-        private void Rebuild() {
+        public void Rebuild() {
             LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
         }
 

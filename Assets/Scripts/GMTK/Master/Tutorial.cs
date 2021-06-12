@@ -87,14 +87,6 @@ namespace GMTK.Master {
         public class Step {
             public View view;
             public UnityEvent onCompleted;
-
-            public GameObject toHighlight;
-
-
-            [ShowIf(nameof(toHighlight))]
-            [Required]
-            public DialogueLine line;
-
             public void Complete() {
                 onCompleted.Invoke();
             }

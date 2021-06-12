@@ -13,9 +13,11 @@ namespace GMTK.Input {
         public PlayerInput input;
 
         private InputAction click;
+        private InputAction rightClick;
 
         private void Start() {
             click = input.actions["Click"];
+            rightClick = input.actions["RightClick"];
         }
 
         public bool GetInteract() {
@@ -36,6 +38,10 @@ namespace GMTK.Input {
 
         public bool GetMouseUp() {
             return click.WasReleasedThisFrame();
+        }
+        
+        public bool GetRightMouse() {
+            return rightClick.IsPressed();
         }
     }
 }
