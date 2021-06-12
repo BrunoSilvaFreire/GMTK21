@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17241c3eaf386d4479b30c7ae09c3fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  immediateSnapOnStart: 1
   shown: 0
   canvasGroup: {fileID: 1516326260}
   revealedOpacity: 1
@@ -347,8 +348,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Drag & Release!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7f5d4fb060a597c4799c1c009ffaa124, type: 2}
+  m_sharedMaterial: {fileID: -167285095388325119, guid: 7f5d4fb060a597c4799c1c009ffaa124, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
