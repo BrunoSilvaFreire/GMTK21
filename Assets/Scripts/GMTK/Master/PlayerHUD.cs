@@ -1,8 +1,11 @@
 using System;
 using GMTK.Game;
 using GMTK.UI;
+using GraphVisualizer;
 using Lunari.Tsuki.Entities;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GMTK.Master {
     public class PlayerHUD : Trait {
@@ -10,23 +13,42 @@ namespace GMTK.Master {
         public GameObject anchorObject;
         public View anchorView;
         public LineRenderer line;
-        public View lineView;
         public float offset;
+        public float lineStartAlpha = 1;
+        public float lineEndAlpha = 0.5F;
+        private Color[] colors;
+        public SpriteRenderer reference;
+
         public override void Configure(TraitDescriptor descriptor) {
             descriptor.DependsOn(out attractor);
         }
 
+        private void Start() {
+            colors = new Color[2];
+            colors[0] = Color.white;
+            colors[1] = Color.white;
+        }
+
         private void Update() {
+            ref var firstColor = ref colors[0];
+            ref var secondColor = ref colors[1];
+            var p = reference.color.a;
+            firstColor.a = Mathf.Lerp(0, lineStartAlpha, p);
+            secondColor.a = Mathf.Lerp(0, lineEndAlpha, p);
+            line.startColor = firstColor;
+            line.endColor = secondColor;
             var dragging = attractor.dragging;
             anchorView.Shown = dragging;
-            lineView.Shown = dragging;
             if (!dragging) {
                 return;
             }
 
-            var anchorPos = attractor.StartDraggingPosition;
-            var currentPos = attractor.Input.MousePosition;
-            var dir = (currentPos - anchorPos);
+            var startDraggingPosition = attractor.StartDraggingPosition;
+            var attractorCamera = attractor.camera;
+            var cameraZ = attractorCamera.transform.position.z;
+            startDraggingPosition.z = -cameraZ;
+            var anchorPos = attractorCamera.ScreenToWorldPoint(startDraggingPosition);
+            var dir = -attractor.GetForce();
             var normalizedDir = dir.normalized;
             var opposite = anchorPos - dir;
             var offsetVector = normalizedDir * offset;

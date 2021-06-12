@@ -16,6 +16,8 @@ namespace GMTK.Game {
         public EntityInput Input => input;
 
         public bool dragging;
+        public float maxDistance = 20;
+        public float forceMultiplier = 0.5F;
 
         public override void Configure(TraitDescriptor descriptor) {
             descriptor.DependsOn(out input);
@@ -30,9 +32,14 @@ namespace GMTK.Game {
 
             if (Input.MouseUp) {
                 dragging = false;
-                var endDraggingPosition = Input.MousePosition;
-                onAttract.Invoke(StartDraggingPosition - endDraggingPosition);
+                var direction = GetForce();
+                onAttract.Invoke(direction);
             }
+        }
+
+        public Vector3 GetForce() {
+            return Vector3.ClampMagnitude(StartDraggingPosition - Input.MousePosition, maxDistance) *
+                   forceMultiplier;
         }
     }
 }
