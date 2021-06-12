@@ -73,7 +73,9 @@ MonoBehaviour:
   angryAtom: {fileID: 3971176604822730560, guid: 4c520098b6bc6b344ac39324835989f2, type: 3}
   additionalNeutronChance: 0.5
   baseNeutronCount: 2
-  angryAtomsCount: 2
+  neutronArc: 20
+  neutronForce: 20
+  angryAtomForce: 4
 --- !u!54 &7983516343359605830
 Rigidbody:
   m_ObjectHideFlags: 0
