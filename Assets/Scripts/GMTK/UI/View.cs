@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,9 +9,22 @@ using UnityEngine;
 namespace GMTK.UI {
     public abstract class View : MonoBehaviour {
         public const string ViewGroup = "View Stuff";
+        [BoxGroup(ViewGroup)]
+        public bool immediateSnapOnStart = true;
 
-        [SerializeField] [HideInInspector] private bool shown;
+        [SerializeField]
+        [HideInInspector]
+        private bool shown;
 
+        private void Start() {
+            if (immediateSnapOnStart) {
+                if (shown) {
+                    Show(true);
+                } else {
+                    Hide(true);
+                }
+            }
+        }
 
         [ShowInInspector]
         [BoxGroup(ViewGroup)]
