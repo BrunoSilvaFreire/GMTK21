@@ -71,8 +71,9 @@ MonoBehaviour:
     m_Bits: 64
   neutronPrefab: {fileID: 5695064260913539765, guid: 75a28666a157e864ab0b03cd68f38fc9, type: 3}
   angryAtom: {fileID: 3971176604822730560, guid: 4c520098b6bc6b344ac39324835989f2, type: 3}
-  neutronsReleasedOnCollision: 3
-  angryAtomsReleasedOnCollision: 2
+  additionalNeutronChance: 0.5
+  baseNeutronCount: 2
+  angryAtomsCount: 2
 --- !u!54 &7983516343359605830
 Rigidbody:
   m_ObjectHideFlags: 0
