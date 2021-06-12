@@ -8,7 +8,7 @@ namespace GMTK.Game {
     public class NeutronAttractor : Trait {
         public UnityEvent<Vector3> onAttract;
 
-        private new Camera camera;
+        public new Camera camera;
         private EntityInput input;
 
         public Vector3 StartDraggingPosition { get; private set; }

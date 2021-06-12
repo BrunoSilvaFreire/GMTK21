@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace GMTK.UI {
@@ -10,7 +11,16 @@ namespace GMTK.UI {
         private void Awake() {
             if (other != null) {
                 var rebuilder = other.gameObject.AddComponent<DelegateRebuilder>();
-                rebuilder.onRebuild.AddListener(Rebuild);
+                if (rebuilder == null) {
+                    return;
+                }
+
+                var r = rebuilder.onRebuild;
+                if (r == null) {
+                    rebuilder.onRebuild = r = new UnityEvent();
+                }
+
+                r.AddListener(Rebuild);
             }
         }
 

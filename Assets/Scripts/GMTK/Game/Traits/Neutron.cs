@@ -8,11 +8,17 @@ using UnityEngine.PlayerLoop;
 
 namespace GMTK.Game.Traits {
     public class Neutron : Particle {
+        public static readonly List<Neutron> AllNeutrons = new();
+        
+        private void OnEnable() {
+            AllNeutrons.Add(this);
+        }
         private void Start() {
             Player.Instance.Pawn.GetTrait<NeutronAttractor>().onAttract.AddListener(OnAttract);
         }
 
         private void OnDisable() {
+            AllNeutrons.Remove(this);
             var player = Player.Instance; //cringe unity
             if (player) {
                 player.Pawn.GetTrait<NeutronAttractor>().onAttract.RemoveListener(OnAttract);    

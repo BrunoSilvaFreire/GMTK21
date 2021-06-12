@@ -26,14 +26,8 @@ namespace GMTK.Input {
         public Vector3 GetMousePosition() {
             if (playerCamera == null) return Vector2.zero;
 
-            var mousePos = Mouse.current.position.ReadValue();
-            var pos = (Vector2) playerCamera.ScreenToWorldPoint(new Vector3(
-                mousePos.x,
-                mousePos.y,
-                -playerCamera.transform.position.z
-            ));
 
-            return pos;
+            return Mouse.current.position.ReadValue();
         }
 
         public bool GetMouseDown() {
