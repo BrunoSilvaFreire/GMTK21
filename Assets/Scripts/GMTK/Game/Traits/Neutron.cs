@@ -28,9 +28,8 @@ namespace GMTK.Game.Traits {
             var attractor = Player.Instance.Pawn.GetTrait<NeutronAttractor>();
             attractor.onAttractDirection.AddListener(OnAttractDirection);
             attractor.onAttractPosition.AddListener(OnAttractPosition);
-
-            if (!immortal) {
-                transform.DOPunchScale(Vector3.one * 0.1f, 0.1f).OnComplete(() => {
+             if (!immortal) {
+               transform.DOPunchScale(Vector3.one * 0.1f, 0.1f).OnComplete(() => {
                     transform.DOScale(Vector3.zero, 0.5f).OnComplete(() => {
                         if (AllNeutrons.Count > 1) {
                             Destroy(gameObject);
@@ -38,8 +37,10 @@ namespace GMTK.Game.Traits {
                     });
                 }).SetDelay(lifeTime);
             }
+            // Invoke(nameof(DestroyNeutron), lifeTime);//hehehehe
+            // Bruno: No.
         }
-
+        
         private void OnDestroy() {
             transform.DOKill();
             AllNeutrons.Remove(this);

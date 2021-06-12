@@ -918,17 +918,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0.046753567
-      outSlope: 0.046753567
+      inSlope: 0.007777778
+      outSlope: 0.007777778
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 150
-      value: 8.013035
-      inSlope: 0.046753567
-      outSlope: 0.046753567
+      time: 900
+      value: 8
+      inSlope: 0.007777778
+      outSlope: 0.007777778
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -1083,7 +1083,10 @@ MonoBehaviour:
   spawning: 1
   happyAtomPrefab: {fileID: 6513519190595225750, guid: 9b17bdee9857c7b49873c25eb48b7223, type: 3}
   camera: {fileID: 0}
-  spawnInterval: 0.25
+  phases: []
+  onPhaseChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8334303796786130750
 GameObject:
   m_ObjectHideFlags: 0

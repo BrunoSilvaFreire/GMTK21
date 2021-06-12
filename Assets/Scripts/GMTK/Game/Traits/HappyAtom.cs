@@ -55,7 +55,7 @@ namespace GMTK.Game.Traits {
                 angryAtoms.rigidbody.AddForce(direction * angryAtomForce, ForceMode.Impulse);
             }
 
-            AtomSpawner.Instance.OnHappyAtomDestroyed();
+            AtomSpawner.Instance.OnHappyAtomDestroyed(neutronCount);
             
             Destroy(gameObject);
             Destroy(collision.rigidbody.gameObject);
