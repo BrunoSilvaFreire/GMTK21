@@ -1,7 +1,18 @@
-﻿{
-  "name": "GMTK.Input",
-  "references": [
-    "Tsuki.Runtime",
-    "Tsuki.Entities"
-  ]
+{
+    "name": "GMTK.Input",
+    "rootNamespace": "",
+    "references": [
+        "Tsuki.Runtime",
+        "Tsuki.Entities",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

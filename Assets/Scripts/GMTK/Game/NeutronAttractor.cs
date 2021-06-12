@@ -12,6 +12,9 @@ namespace GMTK.Game {
         private EntityInput input;
 
         public Vector3 StartDraggingPosition { get; private set; }
+
+        public EntityInput Input => input;
+
         public bool dragging;
 
         public override void Configure(TraitDescriptor descriptor) {
@@ -20,12 +23,14 @@ namespace GMTK.Game {
         }
 
         private void Update() {
-            if (input.MouseDown) {
-                StartDraggingPosition = input.MousePosition;
+            if (Input.MouseDown) {
+                dragging = true;
+                StartDraggingPosition = Input.MousePosition;
             }
 
-            if (input.MouseUp) {
-                var endDraggingPosition = input.MousePosition;
+            if (Input.MouseUp) {
+                dragging = false;
+                var endDraggingPosition = Input.MousePosition;
                 onAttract.Invoke(StartDraggingPosition - endDraggingPosition);
             }
         }
