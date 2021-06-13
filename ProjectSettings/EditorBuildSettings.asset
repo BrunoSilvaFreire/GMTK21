@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main_Novak.unity
     guid: cca8eda5b46f3e244bfffa45fa1da903
+  - enabled: 1
+    path: Assets/Scenes/Main_Bruno.unity
+    guid: d2c17eb35b1c531478d55b13999f164a
   m_configObjects: {}
