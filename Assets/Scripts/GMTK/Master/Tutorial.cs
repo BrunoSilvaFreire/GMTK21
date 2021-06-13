@@ -23,19 +23,37 @@ namespace GMTK.Master {
             get => current;
             set {
                 if (current == value) return;
+                var step = CurrentStep;
+                var next = GetStep(value);
 
-                SetShown(value, true);
-                if (Active) {
-                    SetShown(current, false);
+                if (step != null && next != null) {
+                    var currentView = step.view;
+                    var nextView = next.view;
+                    if (currentView != nextView) {
+                        currentView.Hide();
+                        nextView.Show();
+                    }
+                } else {
+                    SetShown(value, true);
+                    if (Active) {
+                        SetShown(current, false);
+                    }
                 }
 
                 current = value;
-                var step = CurrentStep;
                 step?.onCompleted.AddDisposableListener(() => { Current++; }).FireOnce().DisposeOn(onCurrentChanged);
                 animator.SetInteger(animatorParameter, value);
 
                 onCurrentChanged.Invoke();
             }
+        }
+
+        private Step GetStep(int value) {
+            if (value < 0 || value > steps.Count) {
+                return null;
+            }
+
+            return steps[value];
         }
 
         public Step CurrentStep => Active ? steps[current] : null;
@@ -87,6 +105,7 @@ namespace GMTK.Master {
         public class Step {
             public View view;
             public UnityEvent onCompleted;
+
             public void Complete() {
                 onCompleted.Invoke();
             }

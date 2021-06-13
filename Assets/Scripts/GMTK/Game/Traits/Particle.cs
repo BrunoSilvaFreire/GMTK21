@@ -6,7 +6,7 @@ using UnityEngine;
 namespace GMTK.Game.Traits {
     public class Particle : Trait {
         private const string SpawnedParameter = "Spawned";
-        private const string DiedParameter = "Died";
+        protected const string DiedParameter = "Died";
 
         private Rigidbody rb;
         public Animator animator;
