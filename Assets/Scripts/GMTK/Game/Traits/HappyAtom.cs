@@ -57,12 +57,12 @@ namespace GMTK.Game.Traits {
         protected override void Start() {
             base.Start();
             StartCoroutine(CheckCloseNeutrons());
+            closeNeutrons = new Collider[1];
         }
 
         private IEnumerator CheckCloseNeutrons() {
             while (gameObject.activeInHierarchy) {
-                isScared = Physics.OverlapSphereNonAlloc(transform.position, scaryRadius, closeNeutrons,
-                    1 << neutronMask.value) > 0;
+                isScared = Physics.OverlapSphereNonAlloc(transform.position, scaryRadius, closeNeutrons, neutronMask.value) > 0;
                 yield return new WaitForSeconds(0.25f);
             }
         }
