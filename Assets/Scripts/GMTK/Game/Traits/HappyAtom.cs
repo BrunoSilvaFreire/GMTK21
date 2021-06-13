@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Lunari.Tsuki.Runtime;
 using UnityEngine;
@@ -23,6 +24,12 @@ namespace GMTK.Game.Traits {
         public float angryAtomForce = 4f;
         public float velocityToDetonate = 20.0f;
 
+        public float scaryRadius = 15f;
+        
+        public bool isScared { get; private set; }
+
+        private Collider[] closeNeutrons;
+
         private Vector3 Vector3FromAngle(float angle) {
             return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle));
         }
@@ -30,7 +37,19 @@ namespace GMTK.Game.Traits {
         private float AngleFromIndex(int index, int totalIndexes) {
             return Mathf.Deg2Rad * Mathf.Lerp(-neutronArc, neutronArc, (float)index / totalIndexes);
         }
+
+        protected override void Start() {
+            base.Start();
+            StartCoroutine(CheckCloseNeutrons());
+        }
         
+        private IEnumerator CheckCloseNeutrons() {
+            while (gameObject.activeInHierarchy) {
+                isScared = Physics.OverlapSphereNonAlloc(transform.position, scaryRadius, closeNeutrons, 1 << neutronMask.value) > 0;
+                yield return new WaitForSeconds(0.25f);
+            }
+        }
+
         protected override void OnCollisionWithNeutron(Collision collision) {
 
             if (collision.relativeVelocity.magnitude < velocityToDetonate) {

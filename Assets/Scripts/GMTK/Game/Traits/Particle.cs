@@ -22,7 +22,7 @@ namespace GMTK.Game.Traits {
             descriptor.RequiresAnimatorParameter(DiedParameter, AnimatorControllerParameterType.Trigger);
         }
 
-        private void Start() {
+        protected virtual void Start() {
             if (animator) {
                 animator.SetTrigger(Spawned);
             }
