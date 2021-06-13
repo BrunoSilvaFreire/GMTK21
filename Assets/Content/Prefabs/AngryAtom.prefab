@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3971176604822730560}
   - component: {fileID: 6532271935681568616}
   - component: {fileID: 1393835756593491196}
+  - component: {fileID: 592988042117788367}
   m_Layer: 8
   m_Name: AngryAtom
   m_TagString: Untagged
@@ -66,9 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec99456424b34796baba73f7f463f376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   neutronMask:
     serializedVersion: 2
     m_Bits: 64
+  lifeTime: 4
+  fadeTime: 0.5
 --- !u!54 &6532271935681568616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,6 +102,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.92
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &592988042117788367
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160402157713485983}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a414a6721881e514dbe513469891f431, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5707196806751051161
 GameObject:
   m_ObjectHideFlags: 0

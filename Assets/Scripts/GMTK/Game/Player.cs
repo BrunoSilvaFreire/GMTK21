@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using GMTK.Common;
 using GMTK.Entities.Common;
+using GMTK.Game.Traits;
 using GMTK.Input;
 using Lunari.Tsuki.Entities;
 using Lunari.Tsuki.Runtime.Singletons;
@@ -11,7 +12,9 @@ using UnityEngine.Events;
 
 namespace GMTK.Game {
     public class Player : Singleton<Player> {
-        [SerializeField] [HideInInspector] private Entity pawn;
+        [SerializeField]
+        [HideInInspector]
+        private Entity pawn;
 
         public EntityEvent onPawnChanged;
         public InputSource playerSource;
@@ -20,7 +23,11 @@ namespace GMTK.Game {
         private int cachedPriority;
         private InputSource cachedSource;
 
-        
+        public int GetNumPeopleDead() {
+            var neutronCount = Neutron.AllNeutrons.Count;
+            return neutronCount * 50;
+        }
+
         [ShowInInspector]
         public Entity Pawn {
             get => pawn;

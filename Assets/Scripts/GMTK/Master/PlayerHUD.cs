@@ -49,7 +49,7 @@ namespace GMTK.Master {
         }
 
         private void UpdateNeutronCount() {
-            var score = Neutron.AllNeutrons.Count;
+            var score = Player.Instance.GetNumPeopleDead();
             currentScore = (int) Mathf.Lerp(currentScore, score, lerpSpeed * Time.deltaTime);
             scoreLabel.text = currentScore.ToString();
         }
