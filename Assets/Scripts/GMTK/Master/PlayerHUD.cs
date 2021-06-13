@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using GMTK.Game;
 using GMTK.Game.Traits;
 using GMTK.UI;
@@ -53,7 +54,7 @@ namespace GMTK.Master {
             var score = player.GetNumPeopleDead();
             currentScore = (int) Mathf.Lerp(currentScore, score, lerpSpeed * Time.deltaTime);
             scoreLabel.text = currentScore.ToString();
-            timeLabel.text = player.timeLeft + "ps";
+            timeLabel.text = (player.timeLeft * 1E-12F).ToString("N14") + "s";
         }
 
         private void UpdateForceVisualizer() {
