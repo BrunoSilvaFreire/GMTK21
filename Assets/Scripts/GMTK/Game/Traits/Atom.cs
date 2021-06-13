@@ -16,6 +16,9 @@ namespace GMTK.Game.Traits {
         }
         
         protected abstract void OnCollisionWithNeutron(Collision collision);
-        
+
+        public void Delete() {
+            Destroy(gameObject);
+        }
     }
 }

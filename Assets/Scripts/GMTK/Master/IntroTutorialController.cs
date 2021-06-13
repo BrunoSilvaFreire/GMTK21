@@ -9,22 +9,34 @@ namespace GMTK.Master {
         private bool firstClicked;
         public Tutorial tutorial;
         public FollowMouse mouse;
+
         private void Start() {
             attractor = Player.Instance.Pawn.GetTrait<NeutronAttractor>();
         }
 
         private void Update() {
             mouse.positionOverride = attractor.StartDraggingPosition;
-            if (!firstClicked) {
-                if (attractor.dragging) {
-                    tutorial.CurrentStep.Complete();
-                    firstClicked = true;
-                    mouse.usePositionOverride = true;
-                }
-            } else {
-                if (!attractor.dragging) {
-                    tutorial.End();
-                }
+            switch (tutorial.Current) {
+                case 0:
+                    if (!firstClicked) {
+                        if (attractor.dragging) {
+                            tutorial.CurrentStep.Complete();
+                            firstClicked = true;
+                            mouse.usePositionOverride = true;
+                        }
+                    }
+
+                    break;
+                case 1:
+                    if (!attractor.dragging) {
+                        tutorial.CurrentStep.Complete();
+                    }
+                    break;
+                case 2:
+                    if (attractor.Input.RightMouse) {
+                        tutorial.End();
+                    }
+                    break;
             }
         }
     }

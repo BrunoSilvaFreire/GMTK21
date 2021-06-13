@@ -41,7 +41,7 @@ namespace GMTK.Master {
                 }
 
                 current = value;
-                step?.onCompleted.AddDisposableListener(() => { Current++; }).FireOnce().DisposeOn(onCurrentChanged);
+                CurrentStep?.onCompleted.AddDisposableListener(() => { Current++; }).FireOnce().DisposeOn(onCurrentChanged);
                 animator.SetInteger(animatorParameter, value);
 
                 onCurrentChanged.Invoke();
