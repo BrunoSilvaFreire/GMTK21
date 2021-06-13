@@ -11,7 +11,7 @@ namespace GMTK.Game.Traits {
 
         [SerializeField] private Neutron neutronPrefab;
         [SerializeField] private AngryAtom angryAtom;
-
+        public new Collider collider;
         [Range(0f, 1f)]
         public float additionalNeutronChance = 0.5f;
         public int baseNeutronCount = 3;
@@ -31,6 +31,9 @@ namespace GMTK.Game.Traits {
         }
         
         protected override void OnCollisionWithNeutron(Collision collision) {
+            if (!Owner.Aware) {
+                return;
+            }
             var normal = collision.contacts[0].normal;
             var rightToNormal = Vector3.Cross(normal, Vector3.forward);
             
@@ -56,8 +59,9 @@ namespace GMTK.Game.Traits {
             }
 
             AtomSpawner.Instance.OnHappyAtomDestroyed(neutronCount);
-            
-            Destroy(gameObject);
+            Owner.Aware = false;
+            animator.SetTrigger(DiedParameter);
+            collider.enabled = false;
             Destroy(collision.rigidbody.gameObject);
         }
     }

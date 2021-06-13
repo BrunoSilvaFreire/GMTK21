@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7983516343359605830}
   - component: {fileID: 2827004218463371218}
   - component: {fileID: 8271185723405324588}
+  - component: {fileID: 575400156737574792}
   m_Layer: 7
   m_Name: HappyAtom
   m_TagString: Untagged
@@ -74,6 +75,7 @@ MonoBehaviour:
     m_Bits: 64
   neutronPrefab: {fileID: 5695064260913539765, guid: 75a28666a157e864ab0b03cd68f38fc9, type: 3}
   angryAtom: {fileID: 3971176604822730560, guid: 4c520098b6bc6b344ac39324835989f2, type: 3}
+  collider: {fileID: 2827004218463371218}
   additionalNeutronChance: 0.5
   baseNeutronCount: 2
   neutronArc: 20
@@ -127,6 +129,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &575400156737574792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995533972818879409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372bda8f07584aee815299e41b5ddc27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5774481465641404563
 GameObject:
   m_ObjectHideFlags: 0
