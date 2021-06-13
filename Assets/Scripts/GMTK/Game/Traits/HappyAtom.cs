@@ -21,6 +21,7 @@ namespace GMTK.Game.Traits {
         public float neutronArc = 30f;
         public float neutronForce = 4f;
         public float angryAtomForce = 4f;
+        public float velocityToDetonate = 20.0f;
 
         private Vector3 Vector3FromAngle(float angle) {
             return new Vector3(Mathf.Cos(angle), Mathf.Sin(angle));
@@ -31,6 +32,11 @@ namespace GMTK.Game.Traits {
         }
         
         protected override void OnCollisionWithNeutron(Collision collision) {
+
+            if (collision.relativeVelocity.magnitude < velocityToDetonate) {
+                return;
+            }
+
             var normal = collision.contacts[0].normal;
             var rightToNormal = Vector3.Cross(normal, Vector3.forward);
             
