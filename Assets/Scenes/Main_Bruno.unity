@@ -567,7 +567,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.2295408, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -746,6 +746,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: ea0a01a584f285d41bbde40ec5c8bff5, type: 3}
   m_ActionId: d01f86cb-2c6f-4fe8-b6b8-551fcfa3d7df
+--- !u!114 &1198732836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7065509466680248479, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+  m_PrefabInstance: {fileID: 8334303795559048047}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17241c3eaf386d4479b30c7ae09c3fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1498358241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -892,6 +903,22 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - view: {fileID: 1516326264}
+    onCompleted:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - view: {fileID: 1198732836}
     onCompleted:
       m_PersistentCalls:
         m_Calls: []
@@ -1253,6 +1280,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 187053529235012588, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187053529235012588, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 208990329840378044, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1269,6 +1304,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1409120429136948635, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 670980804}
     - target: {fileID: 8334303795421135204, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
       propertyPath: playerCamera
       value: 
