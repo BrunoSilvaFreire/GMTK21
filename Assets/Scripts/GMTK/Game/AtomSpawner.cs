@@ -55,8 +55,8 @@ namespace GMTK.Game {
 
         public void SetCurrentPhase(int index) {
             neutronCounter = 0;
-            CurrentPhaseIndex = index;
             onPhaseChanged.Invoke(index);
+            CurrentPhaseIndex = index;
         }
 
         private IEnumerator SpawnAtoms() {
