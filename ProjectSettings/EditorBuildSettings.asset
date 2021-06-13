@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main_Novak.unity
     guid: cca8eda5b46f3e244bfffa45fa1da903
   - enabled: 1

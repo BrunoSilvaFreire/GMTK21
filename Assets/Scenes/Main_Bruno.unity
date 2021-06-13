@@ -578,7 +578,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7590551, y: 1}
+    m_SensorSize: {x: 1.7543253, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1440,6 +1440,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350997050, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187053529235012588, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187053529235012588, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386073462331101208, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386073462331101208, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1402673831398083794, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1448,6 +1468,14 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 670980804}
+    - target: {fileID: 2754853538262864317, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001854399363420265, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8334303795421135204, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
       propertyPath: playerCamera
       value: 
@@ -1504,10 +1532,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8334303796232380763, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334303796338237335, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334303796584463619, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8334303796682497832, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 670980804}
+    - target: {fileID: 8334303796682497833, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8334303797062790681, guid: ecc23f925b6c17c49b3c3b86363c9f97, type: 3}
       propertyPath: camera
       value: 
