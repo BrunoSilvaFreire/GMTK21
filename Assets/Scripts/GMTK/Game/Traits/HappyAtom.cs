@@ -36,6 +36,7 @@ namespace GMTK.Game.Traits {
         public bool isScared { get; private set; }
 
         private Collider[] closeNeutrons;
+        private Vector3 collisionNormal;
 
         public override void Configure(TraitDescriptor descriptor) {
             base.Configure(descriptor);
@@ -76,8 +77,22 @@ namespace GMTK.Game.Traits {
                 return;
             }
 
-            var normal = collision.contacts[0].normal;
-            var rightToNormal = Vector3.Cross(normal, Vector3.forward);
+            collisionNormal = collision.contacts[0].normal;
+            
+            Owner.Aware = false;
+            animator.SetTrigger(DiedParameter);
+            collider.enabled = false;
+            Destroy(collision.rigidbody.gameObject);
+        }
+
+        public override void Delete() {
+            FissureAtom();
+            base.Delete();
+        }
+
+        private void FissureAtom() {
+            
+            var rightToNormal = Vector3.Cross(collisionNormal, Vector3.forward);
 
             var neutronCount = baseNeutronCount;
             if (Random.value < additionalNeutronChance) {
@@ -85,8 +100,8 @@ namespace GMTK.Game.Traits {
             }
 
             int childIndex = 0;
-            float angleOffset = Mathf.Atan2(normal.y, normal.x);
-
+            float angleOffset = Mathf.Atan2(collisionNormal.y, collisionNormal.x);
+            
             for (int i = 0; i < neutronCount; i++) {
                 var direction =
                     Vector3FromAngle(AngleFromIndex(childIndex, Mathf.Max(neutronCount - 1, 1)) + angleOffset);
@@ -102,10 +117,6 @@ namespace GMTK.Game.Traits {
             }
 
             AtomSpawner.Instance.OnHappyAtomDestroyed(neutronCount);
-            Owner.Aware = false;
-            animator.SetTrigger(DiedParameter);
-            collider.enabled = false;
-            Destroy(collision.rigidbody.gameObject);
         }
     }
 }
