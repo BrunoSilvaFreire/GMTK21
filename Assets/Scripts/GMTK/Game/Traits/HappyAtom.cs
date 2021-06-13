@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Lunari.Tsuki.Entities;
 using Lunari.Tsuki.Runtime;
+using Shiroi.FX.Effects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -37,6 +38,7 @@ namespace GMTK.Game.Traits {
 
         private Collider[] closeNeutrons;
         private Vector3 collisionNormal;
+        public Effect neutronEffect;
 
         public override void Configure(TraitDescriptor descriptor) {
             base.Configure(descriptor);
@@ -63,7 +65,8 @@ namespace GMTK.Game.Traits {
 
         private IEnumerator CheckCloseNeutrons() {
             while (gameObject.activeInHierarchy) {
-                isScared = Physics.OverlapSphereNonAlloc(transform.position, scaryRadius, closeNeutrons, neutronMask.value) > 0;
+                isScared = Physics.OverlapSphereNonAlloc(transform.position, scaryRadius, closeNeutrons,
+                    neutronMask.value) > 0;
                 yield return new WaitForSeconds(0.25f);
             }
         }
@@ -78,10 +81,15 @@ namespace GMTK.Game.Traits {
             }
 
             collisionNormal = collision.contacts[0].normal;
-            
+
             Owner.Aware = false;
             animator.SetTrigger(DiedParameter);
             collider.enabled = false;
+            var neutron = collision.gameObject.GetComponentInChildren<Neutron>();
+            if (neutron != null) {
+                neutronEffect.PlayIfPresent(neutron);
+            }
+
             Destroy(collision.rigidbody.gameObject);
         }
 
@@ -91,7 +99,6 @@ namespace GMTK.Game.Traits {
         }
 
         private void FissureAtom() {
-            
             var rightToNormal = Vector3.Cross(collisionNormal, Vector3.forward);
 
             var neutronCount = baseNeutronCount;
@@ -101,7 +108,7 @@ namespace GMTK.Game.Traits {
 
             int childIndex = 0;
             float angleOffset = Mathf.Atan2(collisionNormal.y, collisionNormal.x);
-            
+
             for (int i = 0; i < neutronCount; i++) {
                 var direction =
                     Vector3FromAngle(AngleFromIndex(childIndex, Mathf.Max(neutronCount - 1, 1)) + angleOffset);

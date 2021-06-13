@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4696942279898251602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed263ce8e6b42bfb10096ba2efd1ef3, type: 3}
+  m_Name: SpawnEffect
+  m_EditorClassIdentifier: 
+  obj: {fileID: 5905845044094060639, guid: 7b56761e48d8f7748871cc3d3f1f3abf, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a8a617ead31e54988376e6a4869423, type: 3}
+  m_Name: NeutronBreakEffect
+  m_EditorClassIdentifier: 
+  Effects:
+  - {fileID: -4696942279898251602}

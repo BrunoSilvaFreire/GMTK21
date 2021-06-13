@@ -83,6 +83,7 @@ MonoBehaviour:
   angryAtomForce: 4
   velocityToDetonate: 20
   scaryRadius: 15
+  neutronEffect: {fileID: 11400000, guid: b671957d520fcec4a9ff67441750c038, type: 2}
 --- !u!54 &7983516343359605830
 Rigidbody:
   m_ObjectHideFlags: 0
