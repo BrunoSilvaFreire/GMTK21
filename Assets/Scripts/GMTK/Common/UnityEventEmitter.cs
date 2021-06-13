@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +11,9 @@ namespace GMTK.Common {
     public class UnityEventEmitter : MonoBehaviour {
         public UnityEvent unityEvent;
 
+#if UNITY_EDITOR
         [Button]
+#endif
         public void Invoke() {
             unityEvent.Invoke();
         }

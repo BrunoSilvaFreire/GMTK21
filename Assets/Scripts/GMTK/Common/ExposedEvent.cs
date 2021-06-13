@@ -2,14 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace GMTK.Common {
     [Serializable]
     public sealed class ExposedEvent {
-        [ListDrawerSettings] public List<ExposedCall> calls;
+#if UNITY_EDITOR
+        [ListDrawerSettings] 
+#endif
+        public List<ExposedCall> calls;
 
         public void Invoke(IExposedPropertyTable table) {
             foreach (var exposedCall in calls) exposedCall.Invoke(table);

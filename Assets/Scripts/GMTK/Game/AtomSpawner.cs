@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using GMTK.Game.Traits;
 using Lunari.Tsuki.Runtime;
 using Lunari.Tsuki.Runtime.Singletons;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,8 +32,9 @@ namespace GMTK.Game {
         public float spawnDirectionBias = 0.5f;
 
         public Phase CurrentPhase => phases[CurrentPhaseIndex];
-        
+#if UNITY_EDITOR
         [ShowInInspector]
+#endif
         public int CurrentPhaseIndex { get; private set; } = 0;
 
         public UnityEvent<int> onPhaseChanged;
