@@ -79,11 +79,12 @@ MonoBehaviour:
   additionalNeutronChance: 0.5
   baseNeutronCount: 2
   neutronArc: 20
-  neutronForce: 20
+  neutronForce: 50.78
   angryAtomForce: 4
-  velocityToDetonate: 20
-  scaryRadius: 15
+  velocityToDetonate: 8
+  scaryRadius: 10.45
   neutronEffect: {fileID: 11400000, guid: b671957d520fcec4a9ff67441750c038, type: 2}
+
 --- !u!54 &7983516343359605830
 Rigidbody:
   m_ObjectHideFlags: 0
