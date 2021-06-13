@@ -1,14 +1,20 @@
 ﻿using System;
 using GMTK.Input;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 
 namespace GMTK.Master {
     public class FollowMouse : MonoBehaviour {
+#if UNITY_EDITOR
         [Required]
+#endif
         public InputSource source;
 
+#if UNITY_EDITOR
         [Required]
+#endif
         public new Camera camera;
 
         public float lerpAmount = 0.75F;

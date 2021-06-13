@@ -1,15 +1,21 @@
 ﻿using System;
 using Lunari.Tsuki.Entities;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace GMTK.Input {
     public class InputSource : Trait {
+#if UNITY_EDITOR
         [Required]
+#endif
         public Camera playerCamera;
-    
+
+#if UNITY_EDITOR
         [Required]
+#endif
         public PlayerInput input;
 
         private InputAction click;

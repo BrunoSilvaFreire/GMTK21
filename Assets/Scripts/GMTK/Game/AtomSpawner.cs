@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using GMTK.Game.Traits;
 using Lunari.Tsuki.Runtime;
 using Lunari.Tsuki.Runtime.Singletons;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,8 +32,9 @@ namespace GMTK.Game {
         public float spawnDirectionBias = 0.5f;
 
         public Phase CurrentPhase => phases[CurrentPhaseIndex];
-        
+#if UNITY_EDITOR
         [ShowInInspector]
+#endif
         public int CurrentPhaseIndex { get; private set; } = 0;
 
         public UnityEvent<int> onPhaseChanged;
@@ -40,12 +43,15 @@ namespace GMTK.Game {
         private int neutronCounter = 0;
         private Vector3 currentDirection;
 
+        public int AtomCounter { get; private set; } = 0;
+
         private void Start() {
             StartCoroutine(SpawnAtoms());
         }
         
         public void OnHappyAtomDestroyed(int neutronsCreated) {
             neutronCounter += neutronsCreated;
+            
         }
 
         public void OnNeutronMoved(Vector3 direction) {
@@ -68,7 +74,7 @@ namespace GMTK.Game {
                 var worldPosition = camera.transform.position + Vector3.Lerp(Random.insideUnitCircle * 30, currentDirection, spawnDirectionBias);
                 worldPosition.z = 0;
                 happyAtomPrefab.Clone(worldPosition);
-                
+                AtomCounter++;
                 nextSpawn = Time.time + CurrentPhase.spawnCurve.Evaluate((float)neutronCounter / CurrentPhase.neutronCountToNextPhase);
                 if (neutronCounter > CurrentPhase.neutronCountToNextPhase) {
                     if (CurrentPhaseIndex < phases.Count - 1) {
