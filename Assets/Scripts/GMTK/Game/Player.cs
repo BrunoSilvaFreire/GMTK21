@@ -22,10 +22,12 @@ namespace GMTK.Game {
         public Canvas globalCanvas;
         private int cachedPriority;
         private InputSource cachedSource;
-
+        public float timeLeft = 2 * 60;
+        public int PAQ = 50;
         public int GetNumPeopleDead() {
-            var neutronCount = Neutron.AllNeutrons.Count;
-            return neutronCount * 50;
+            var atomCounter = AtomSpawner.Instance.AtomCounter;
+            //PAQ = 100(editavel) . Numero de Spawn do Atomo
+            return atomCounter * PAQ;
         }
 
         [ShowInInspector]
@@ -77,6 +79,19 @@ namespace GMTK.Game {
             onPawnChanged.AddListener(delegate(Entity arg0) {
                 if (arg0.Access(out A trait)) onAttached(trait);
             });
+        }
+
+        public UnityEvent onGameFinished;
+
+        private void Update() {
+            if (timeLeft > 0) {
+                timeLeft -= Time.deltaTime;
+
+                if (timeLeft < 0) {
+                    timeLeft = 0;
+                    onGameFinished.Invoke();
+                }
+            }
         }
     }
 

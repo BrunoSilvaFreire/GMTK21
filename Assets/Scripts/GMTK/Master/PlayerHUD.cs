@@ -25,6 +25,7 @@ namespace GMTK.Master {
         public TMP_Text scoreLabel;
         public int currentScore;
         public float lerpSpeed = 50;
+        public TMP_Text timeLabel;
 
         public override void Configure(TraitDescriptor descriptor) {
             descriptor.DependsOn(out attractor);
@@ -49,9 +50,11 @@ namespace GMTK.Master {
         }
 
         private void UpdateNeutronCount() {
-            var score = Player.Instance.GetNumPeopleDead();
+            var player = Player.Instance;
+            var score = player.GetNumPeopleDead();
             currentScore = (int) Mathf.Lerp(currentScore, score, lerpSpeed * Time.deltaTime);
             scoreLabel.text = currentScore.ToString();
+            timeLabel.text = player.timeLeft + "ps";
         }
 
         private void UpdateForceVisualizer() {
