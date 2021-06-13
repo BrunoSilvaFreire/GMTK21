@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -34,7 +36,11 @@ namespace GMTK.Common {
         public class ExposedBinding {
             [SerializeField] private Object value;
 
-            [SerializeField] [DisplayAsString] private PropertyName key;
+            [SerializeField]
+#if UNITY_EDITOR
+            [DisplayAsString] 
+#endif
+            private PropertyName key;
 
             public ExposedBinding(PropertyName key, Object value) {
                 this.key = key;

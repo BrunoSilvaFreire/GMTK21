@@ -6,7 +6,9 @@ using GMTK.Game.Traits;
 using GMTK.Input;
 using Lunari.Tsuki.Entities;
 using Lunari.Tsuki.Runtime.Singletons;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -28,7 +30,9 @@ namespace GMTK.Game {
             return neutronCount * 50;
         }
 
+#if UNITY_EDITOR
         [ShowInInspector]
+#endif
         public Entity Pawn {
             get => pawn;
             set {

@@ -1,5 +1,7 @@
 ﻿using System;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +11,10 @@ using UnityEngine;
 namespace GMTK.UI {
     public abstract class View : MonoBehaviour {
         public const string ViewGroup = "View Stuff";
+        
+#if UNITY_EDITOR
         [BoxGroup(ViewGroup)]
+#endif
         public bool immediateSnapOnStart = true;
 
         [SerializeField]
@@ -26,8 +31,10 @@ namespace GMTK.UI {
             }
         }
 
+#if UNITY_EDITOR
         [ShowInInspector]
         [BoxGroup(ViewGroup)]
+#endif
         public bool Shown {
             get => shown;
             set {

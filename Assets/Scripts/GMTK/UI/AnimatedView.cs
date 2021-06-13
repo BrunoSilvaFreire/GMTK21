@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
 using UnityEditor.Animations;
+#endif
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -14,9 +16,15 @@ namespace GMTK.UI {
 
         public Animator animator;
 
-        [ValueDropdown(nameof(GetAllStates))] public string revealedState = "Base Layer.Revealed";
+#if UNITY_EDITOR
+        [ValueDropdown(nameof(GetAllStates))]
+#endif
+        public string revealedState = "Base Layer.Revealed";
 
-        [ValueDropdown(nameof(GetAllStates))] public string concealedState = "Base Layer.Concealed";
+#if UNITY_EDITOR
+        [ValueDropdown(nameof(GetAllStates))]
+#endif
+        public string concealedState = "Base Layer.Concealed";
 #if UNITY_EDITOR
         public IEnumerable<string> GetAllStates {
             get {

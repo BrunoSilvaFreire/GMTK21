@@ -1,12 +1,17 @@
 ﻿using Cinemachine;
 using Lunari.Tsuki.Entities;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 
 namespace GMTK.Entities.Common {
     [TraitLocation(TraitLocations.Root)]
     public class Filmed : Trait {
-        [AssetsOnly] public CinemachineVirtualCamera cameraPrefab;
+#if UNITY_EDITOR
+        [AssetsOnly] 
+#endif
+        public CinemachineVirtualCamera cameraPrefab;
 
         public CinemachineVirtualCamera sceneCamera;
         private GameObject obj;

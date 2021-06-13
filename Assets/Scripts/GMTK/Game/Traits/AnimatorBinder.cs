@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Lunari.Tsuki.Entities;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 
 namespace GMTK.Game.Traits {
@@ -17,7 +19,9 @@ namespace GMTK.Game.Traits {
             this.getter = getter;
         }
 
+#if UNITY_EDITOR
         [ShowInInspector]
+#endif
         public string Name { get; }
 
         public abstract void Update(Animator animator);
@@ -57,13 +61,19 @@ namespace GMTK.Game.Traits {
         private Animator animator;
         private bool awareLast;
 
+#if UNITY_EDITOR
         [ShowInInspector]
+#endif
         private List<BoolBind> boolBinds;
 
+#if UNITY_EDITOR
         [ShowInInspector]
+#endif
         private List<FloatBind> floatBinds;
 
+#if UNITY_EDITOR
         [ShowInInspector]
+#endif
         private List<TriggerBind> triggerBinds;
 
         private void Start() {
