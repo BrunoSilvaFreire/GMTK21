@@ -35,6 +35,7 @@ namespace GMTK.Game {
                 dragging = false;
                 var direction = GetForce();
                 onAttractDirection.Invoke(direction);
+                AtomSpawner.Instance.OnNeutronMoved(direction);
             }
 
             if (Input.RightMouse) {

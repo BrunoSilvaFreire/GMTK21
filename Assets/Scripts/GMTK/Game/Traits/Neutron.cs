@@ -17,7 +17,6 @@ namespace GMTK.Game.Traits {
         private float randomDirectionTendency = 0.4f;
 
         public float lifeTime = 5f;
-        public bool immortal;
 
         private void OnEnable() {
             AllNeutrons.Add(this);
@@ -30,6 +29,7 @@ namespace GMTK.Game.Traits {
             attractor.onAttractPosition.AddListener(OnAttractPosition);
             Invoke(nameof(DestroyNeutron), lifeTime); //hehehehe
             // Bruno: Do we REAAALLYY need this?
+            // Novak: YES
         }
 
         private void DestroyNeutron() {

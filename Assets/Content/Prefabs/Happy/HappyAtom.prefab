@@ -81,6 +81,8 @@ MonoBehaviour:
   neutronArc: 20
   neutronForce: 20
   angryAtomForce: 4
+  velocityToDetonate: 20
+  scaryRadius: 15
 --- !u!54 &7983516343359605830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -235,6 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467579018696243873}
   - component: {fileID: 3595443669862630922}
+  - component: {fileID: 401989489405622822}
   m_Layer: 7
   m_Name: View
   m_TagString: Untagged
@@ -309,3 +312,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &401989489405622822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8887966179878489783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7086e7600d4ae29817610058e44a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  includeEntityBinds: 0
