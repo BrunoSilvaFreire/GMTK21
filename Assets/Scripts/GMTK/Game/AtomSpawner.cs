@@ -31,6 +31,8 @@ namespace GMTK.Game {
         [Range(0f, 1f)]
         public float spawnDirectionBias = 0.5f;
 
+        public float maximumSpawnInterval = 1f;
+
         public Phase CurrentPhase => phases[CurrentPhaseIndex];
 #if UNITY_EDITOR
         [ShowInInspector]
@@ -42,6 +44,7 @@ namespace GMTK.Game {
         private int atomsToSpawn = 0;
         private int neutronCounter = 0;
         private Vector3 currentDirection;
+        private bool neutronMoved = false;
 
         public int AtomCounter { get; private set; } = 0;
 
@@ -51,12 +54,12 @@ namespace GMTK.Game {
         
         public void OnHappyAtomDestroyed(int neutronsCreated) {
             neutronCounter += neutronsCreated;
-            
+            atomsToSpawn += atomsToSpawnPerCollision;
         }
 
         public void OnNeutronMoved(Vector3 direction) {
-            atomsToSpawn += atomsToSpawnPerCollision;
             currentDirection = direction;
+            neutronMoved = true;
         }
 
         public void SetCurrentPhase(int index) {
@@ -68,8 +71,8 @@ namespace GMTK.Game {
         private IEnumerator SpawnAtoms() {
             float nextSpawn = 0;
             while (spawning) {
-                
-                yield return new WaitWhile(() => atomsToSpawn <= 0 || Time.time < nextSpawn);
+                float timeout = Time.time + maximumSpawnInterval;
+                yield return new WaitWhile(() => (atomsToSpawn <= 0 || Time.time < nextSpawn) && (Time.time < timeout || !neutronMoved));
                 
                 var worldPosition = camera.transform.position + Vector3.Lerp(Random.insideUnitCircle * 30, currentDirection, spawnDirectionBias);
                 worldPosition.z = 0;
